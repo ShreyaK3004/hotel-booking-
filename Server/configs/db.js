@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 import dotenv from "dotenv";
 
-dotenv.config(); // ✅ Load .env variables at the top
+dotenv.config();
 
 const connectDB = async () => {
     try {
@@ -9,7 +9,7 @@ const connectDB = async () => {
             console.log("✅ Database Connected")
         );
 
-        await mongoose.connect(`${process.env.MONGODB_URI}/hotel-booking`, {
+        await mongoose.connect(process.env.MONGODB_URI, {
             useNewUrlParser: true,
             useUnifiedTopology: true,
         });
