@@ -17,10 +17,9 @@ const clerkwebhooks = async (req, res) => {
 
         const userdata = {
             _id: data.id,
-            email: data.email_addresses[0]?.email_address ?? "",
-            username: `${data.first_name ?? ""} ${data.last_name ?? ""}`.trim(),
-            image: data.image_url ?? "",
-            recentSearchCities: [],
+            email: data.email_addresses?.[0]?.email_address || "noemail@example.com",
+            username: `${data.first_name || ""} ${data.last_name || ""}`.trim(),
+            image: data.image_url || "",
         };
 
         switch (type) {
